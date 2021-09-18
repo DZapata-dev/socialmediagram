@@ -1,21 +1,32 @@
-"""Posts models."""
+"""Users models."""
 
 # Django
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class User(models.Model):
-    """User model."""
+class Profile(models.Model):
+    """Profile model.
 
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=100)
+    Proxy model that extends the base data with other
+    information.
+    """
 
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    is_admin = models.BooleanField(default=False)
+    website = models.URLField(max_length=200, blank=True)
+    bigoraphy = models.TextField(blank=True)
+    phone_number = models.CharField(max_length=20, blank=True)
 
-    birthdate = models.DateField(blank=True, null=True)
+    picture = models.ImageField(
+        upload_to='users/pictures',
+        blank=True,
+        null=True
+    )
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        """Return username."""
+        return self.user.username
