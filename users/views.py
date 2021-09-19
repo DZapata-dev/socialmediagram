@@ -16,7 +16,8 @@ from posts.models import Post
 from users.models import Profile
 
 # Forms
-from users.forms import SignupForm, ProfileForm
+from users.forms import SignupForm, ProfileForm,ProfileSerch
+
 
 @login_required
 def update_profile(request):
@@ -87,7 +88,7 @@ def profile_search(request):
         form = ProfileSerch(request.POST)
             
     else:
-        form = ProfileForm()
+        form = ProfileSerch()
 
 
     profiles = Profile.objects.filter(user__first_name__iexact= form.data['search'])
