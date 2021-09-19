@@ -79,11 +79,9 @@ class ProfileSerch(forms.Form):
 
     def clean_search(self):
         search = self.cleaned_data['search']
-        print(search)
-        import pdb; pdb.set_trace()
         profile_founded = Profile.objects.filter(user__first_name__iexact=search)
 
         if profile_founded:
-            return redirect('profile_search'),profile_founded
+            return profile_founded
 
-        return search,profile_founded
+        return searchs
