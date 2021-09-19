@@ -29,9 +29,12 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('atletico-nacional/', local_views.atletico_nacional),
-    path('sorted/', local_views.sort_integers),
-    path('hi/<str:name>/<str:equipo>/', local_views.say_hi),
+    path('atletico-nacional/', local_views.atletico_nacional, name = 'nacional'),
+    path('sorted/', local_views.sort_integers, name = 'sort'),
+    path('hi/<str:name>/<str:equipo>/', local_views.say_hi, name='hi'),
 
-    path('posts/', posts_views.list_posts),
+    path('posts/', posts_views.list_posts, name= 'feed'),
+
+    path('users/login/', users_views.login_view, name='login')
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
