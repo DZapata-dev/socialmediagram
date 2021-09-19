@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 """socialmediagram URLs module."""
-
+# Django
+from django.contrib import admin
 from django.urls import path
 
 from socialmediagram import views as local_views
@@ -23,6 +24,8 @@ from posts import views as posts_views
 
 
 urlpatterns = [
+
+    path('admin/', admin.site.urls),
 
     path('atletico-nacional/', local_views.atletico_nacional),
     path('sorted/', local_views.sort_integers),
