@@ -41,5 +41,7 @@ urlpatterns = [
     path('users/logout/', users_views.logout_view, name='logout'),
     path('users/signup/', users_views.signup, name='signup'),
     path('users/me/profile/', users_views.update_profile, name='update_profile'),
+    path('users/profile_search/', users_views.profile_search, name='profile_search'),
+    path(route='<str:username>/',view=users_views.UserDetailView.as_view(),name='detail')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

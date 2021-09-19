@@ -33,5 +33,19 @@
 
             </ul>
         </div>
+        
+        <form method="POST" action="{% url "profile_search" %}">
+            {% csrf_token %}
+
+        <a>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="find your friends here!" name="search" />
+                <button type="submit"> search </button>
+            </div>
+        </a>
+        
+
+    </form>
+
     </div>
 </nav>
