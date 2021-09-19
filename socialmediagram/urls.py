@@ -23,6 +23,7 @@ from django.urls import path
 
 from socialmediagram import views as local_views
 from posts import views as posts_views
+from users import views as users_views
 
 
 urlpatterns = [

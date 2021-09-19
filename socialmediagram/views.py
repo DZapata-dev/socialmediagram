@@ -1,4 +1,4 @@
-"""Platzigram views."""
+"""Socialmediagram views."""
 
 # Django
 from django.http import HttpResponse

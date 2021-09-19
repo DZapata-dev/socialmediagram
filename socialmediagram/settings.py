@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'platzigram.middleware.ProfileCompletionMiddleware'
+    'socialmediagram.middleware.ProfileCompletionMiddleware'
 ]
 
 ROOT_URLCONF = 'socialmediagram.urls'
