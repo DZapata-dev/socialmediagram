@@ -34,14 +34,17 @@ urlpatterns = [
     path('sorted/', local_views.sort_integers, name = 'sort'),
     path('hi/<str:name>/<str:equipo>/', local_views.say_hi, name='hi'),
 
-    path('', posts_views.list_posts, name='feed'),
-    path('posts/new/', posts_views.create_post, name='create_post'),
+    path('', include(('posts.urls', 'posts'), namespace='posts')),
+    path('users/', include(('users.urls', 'users'), namespace='users')),
 
-    path('users/login/', users_views.login_view, name='login'),
-    path('users/logout/', users_views.logout_view, name='logout'),
-    path('users/signup/', users_views.signup, name='signup'),
-    path('users/me/profile/', users_views.update_profile, name='update_profile'),
-    path('users/profile_search/', users_views.profile_search, name='profile_search'),
-    path(route='<str:username>/',view=users_views.UserDetailView.as_view(),name='detail')
+    # path('', posts_views.list_posts, name='feed'),
+    # path('posts/new/', posts_views.create_post, name='create_post'),
+
+    # path('users/login/', users_views.login_view, name='login'),
+    # path('users/logout/', users_views.logout_view, name='logout'),
+    # path('users/signup/', users_views.signup, name='signup'),
+    # path('users/me/profile/', users_views.update_profile, name='update_profile'),
+    # path('users/profile_search/', users_views.profile_search, name='profile_search'),
+    # path(route='<str:username>/',view=users_views.UserDetailView.as_view(),name='detail')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
