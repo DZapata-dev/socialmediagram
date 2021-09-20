@@ -34,7 +34,8 @@ urlpatterns = [
     path('atletico-nacional/', local_views.atletico_nacional, name = 'nacional'),
     path('sorted/', local_views.sort_integers, name = 'sort'),
     path('hi/<str:name>/<str:equipo>/', local_views.say_hi, name='hi'),
-
+    
+    
     path('', include(('posts.urls', 'posts'), namespace='posts')),
     path('users/', include(('users.urls', 'users'), namespace='users')),
 
@@ -45,7 +46,7 @@ urlpatterns = [
     # path('users/logout/', users_views.logout_view, name='logout'),
     # path('users/signup/', users_views.signup, name='signup'),
     # path('users/me/profile/', users_views.update_profile, name='update_profile'),
-    # path('users/profile_search/', users_views.profile_search, name='profile_search'),
+    # path('profile_search/', local_views.profile_search, name='profile_search'),
     # path(route='<str:username>/',view=users_views.UserDetailView.as_view(),name='detail')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

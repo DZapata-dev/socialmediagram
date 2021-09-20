@@ -2,10 +2,17 @@
 
 # Django
 from django.http import HttpResponse
+from django.shortcuts  import render
 
 # Utilities
 from datetime import datetime
 import json
+
+# Forms
+from users.forms import ProfileSerch
+
+# Models
+from users.models import Profile
 
 
 def atletico_nacional(request):
@@ -37,3 +44,5 @@ def say_hi(request, name, equipo):
     else:
         message = 'Hello, {}! Welcome to socialmediagram'.format(name)
     return HttpResponse(message)
+
+
