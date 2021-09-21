@@ -9,12 +9,7 @@ from users import views
 
 urlpatterns = [
 
-    # Posts
-    path(
-        route='<str:username>/',
-        view=views.UserDetailView.as_view(),
-        name='details'
-    ),
+    
     # Management
    
     path(
@@ -24,7 +19,7 @@ urlpatterns = [
     ),
     path(
         route='logout/',
-        view=views.LogoutView.as_view(),
+        view=views.logout_view,
         name='logout'
     ),
     path(
@@ -40,5 +35,11 @@ urlpatterns = [
     
     path(route='profile_search/',view= views.profile_search, name='profile_search'),
     
+    # Posts
+    path(
+        route='<str:username>/',
+        view=views.UserDetailView.as_view(),
+        name='details'
+    )
 
 ]

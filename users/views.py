@@ -2,10 +2,12 @@
 
 # Django
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views, authenticate, login, logout
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, FormView, UpdateView
-from django.shortcuts  import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
 
 # Models
 from django.contrib.auth.models import User
@@ -122,17 +124,17 @@ class LoginView(auth_views.LoginView):
 #     return render(request, 'users/login.html')
 
 
-class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
-    """Logout view."""
+# class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
+#     """Logout view."""
 
-    template_name = 'users/logged_out.html'
+#     template_name = 'users/logged_out.html'
 
 
-# @login_required
-# def logout_view(request):
-#     """Logout a user."""
-#     logout(request)
-#     return redirect('login')
+@login_required
+def logout_view(request):
+    """Logout a user."""
+    logout(request)
+    return redirect('users:login')
 
 def profile_search(request):
     """ Get a list of profiles who firts name ilike value search"""
