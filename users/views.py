@@ -144,7 +144,6 @@ def profile_search(request):
     else:
         form = ProfileSerch()
 
-    import pdb; pdb.set_trace()
     profiles = Profile.objects.filter(user__first_name__iexact= form.data['search'])
     
     return render( 
