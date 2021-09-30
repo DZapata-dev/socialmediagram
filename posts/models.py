@@ -22,3 +22,8 @@ class Post(models.Model):
     def __str__(self):
         """Return title and username."""
         return '{} by @{}'.format(self.title, self.user.username)
+
+
+# class PostsComments(models.Model):
+
+#     post = models.ForeignKey()
